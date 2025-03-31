@@ -44,7 +44,8 @@ while A > 0:
     Abin[n] = Remainder # Save Remainder to the Array A
     A = int(A/2) # Divide DEC by 2 and save the Quotient
     n = n + 1 # Increase the array index number
-    n = 0
+# NEW CARTI ALBUM!!!
+n = 0
 
 while B > 0:
     Remainder = int(B%2) # Execute MOD operation to get Remainder
