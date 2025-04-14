@@ -6,7 +6,7 @@ CLK = 12
 
 # Setup GPIO
 GPIO.setwarnings(False)         # Prevent "already in use" warnings
-GPIO.setmode(GPIO.BOARD)        # Use physical pin numbering
+GPIO.setmode(GPIO.BCM)        # Use physical pin numbering
 GPIO.setup(CLK, GPIO.OUT)       # Set the CLK pin as output
 
 # Generate clock pulses in an infinite loop
