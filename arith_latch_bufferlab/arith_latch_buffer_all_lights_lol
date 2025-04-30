@@ -1,0 +1,27 @@
+import RPi.GPIO as GPIO
+import time
+
+# GPIO pins connected to the BUFFER inputs (not latch inputs!)
+buffer_input_pins = [12, 9, 2, 5]  # IN01, IN02, IN03, IN04 on SN74LS126N
+buffer_enable_pin = 22            # Controls buffer output
+# If needed: latch_enable_pin = 23
+
+# Setup
+GPIO.setmode(GPIO.BCM)
+
+for pin in buffer_input_pins + [buffer_enable_pin]:
+    GPIO.setup(pin, GPIO.OUT)
+
+try:
+    # Set buffer inputs HIGH to force LEDs ON
+    for pin in buffer_input_pins:
+        GPIO.output(pin, 1)
+
+    # Enable buffer to push the signals to the outputs (LEDs)
+    GPIO.output(buffer_enable_pin, 1)
+
+    print("All LEDs should now be ON.")
+    input("Press Enter to exit and turn them off...")
+
+finally:
+    GPIO.cleanup()
